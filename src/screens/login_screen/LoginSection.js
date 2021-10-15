@@ -121,6 +121,7 @@ class LoginSection extends React.Component {
                 alert(JSON.stringify(user))
 
 
+
                 const db = getFirestore();
                 try {
                     const userObject={
