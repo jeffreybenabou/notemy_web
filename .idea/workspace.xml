@@ -1,14 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="096935a5-797c-4512-ab2b-00587cb5ba2e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+    <list default="true" id="096935a5-797c-4512-ab2b-00587cb5ba2e" name="Default Changelist" comment="objects add and login">
+      <change beforePath="$PROJECT_DIR$/src/screens/login_screen/LoginSection.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/login_screen/LoginSection.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,8 +83,27 @@
       <workItem from="1633967792877" duration="12827000" />
       <workItem from="1634143424439" duration="1213000" />
       <workItem from="1634232273190" duration="10000" />
-      <workItem from="1634284854353" duration="4086000" />
+      <workItem from="1634284854353" duration="4411000" />
     </task>
+    <task id="LOCAL‎00001" summary="objects add and login">
+      <created>1634291083367</created>
+      <option name="number" value="LOCAL‎00001" />
+      <option name="presentableId" value="LOCAL‎00001" />
+      <updated>1634291083367</updated>
+    </task>
+    <task id="LOCAL‎00002" summary="objects add and login">
+      <created>1634291126913</created>
+      <option name="number" value="LOCAL‎00002" />
+      <option name="presentableId" value="LOCAL‎00002" />
+      <updated>1634291126913</updated>
+    </task>
+    <task id="LOCAL‎00003" summary="objects add and login">
+      <created>1634291153133</created>
+      <option name="number" value="LOCAL‎00003" />
+      <option name="presentableId" value="LOCAL‎00003" />
+      <updated>1634291153133</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -107,6 +120,10 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="objects add and login" />
+    <option name="LAST_COMMIT_MESSAGE" value="objects add and login" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
