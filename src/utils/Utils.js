@@ -1,8 +1,8 @@
-import {setState, typeOfAction} from '../redux/setState'
+import {setState, SET_STATE} from '../redux/setState'
 
 export const mapDispatchToProps = (dispatch) => {
     return {
-        [typeOfAction]: async (state) => await dispatch(setState(state)),
+        [SET_STATE]: async (state) => await dispatch(setState(state)),
     };
 
 }

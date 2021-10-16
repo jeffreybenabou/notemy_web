@@ -1,6 +1,6 @@
 
-export const typeOfAction="setState";
+export const SET_STATE=1;
 export const setState = (state) => ({
-    type: [typeOfAction],
+    type: [SET_STATE],
     state,
 });

@@ -2,7 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="096935a5-797c-4512-ab2b-00587cb5ba2e" name="Default Changelist" comment="objects add and login">
+      <change afterPath="$PROJECT_DIR$/src/res/images/logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/AppReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/AppReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/setState.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/setState.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/screens/login_screen/LoginSection.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/login_screen/LoginSection.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/DEFINITIONS.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/DEFINITIONS.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/Utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/Utils.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,7 +43,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/res/images" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
@@ -47,11 +58,15 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\user\WebstormProjects\notemy_web\src\res\images" />
+      <recent name="C:\Users\user\WebstormProjects\notemy_web\src\res\lottie" />
+      <recent name="C:\Users\user\WebstormProjects\notemy_web\src" />
       <recent name="C:\Users\user\WebstormProjects\notemy_web\src\components" />
       <recent name="C:\Users\user\WebstormProjects\notemy_web\src\redux" />
-      <recent name="C:\Users\user\WebstormProjects\notemy_web\src" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\user\WebstormProjects\notemy_web\src\res\lottie" />
+      <recent name="C:\Users\user\WebstormProjects\notemy_web\src\res" />
       <recent name="C:\Users\user\WebstormProjects\notemy_web\src\components\input_component" />
       <recent name="C:\Users\user\WebstormProjects\notemy_web\src\screens\login_screen" />
     </key>
@@ -84,6 +99,7 @@
       <workItem from="1634143424439" duration="1213000" />
       <workItem from="1634232273190" duration="10000" />
       <workItem from="1634284854353" duration="4411000" />
+      <workItem from="1634392430898" duration="7381000" />
     </task>
     <task id="LOCAL‎00001" summary="objects add and login">
       <created>1634291083367</created>
@@ -124,16 +140,5 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="objects add and login" />
     <option name="LAST_COMMIT_MESSAGE" value="objects add and login" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/redux/AppReducer.js</url>
-          <line>12</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

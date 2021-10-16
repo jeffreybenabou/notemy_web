@@ -3,26 +3,47 @@ import './App.css';
 import {connect} from "react-redux";
 import {mapDispatchToProps} from "./utils/Utils";
 import {DEFINITION} from "./utils/DEFINITIONS";
-
-
 import {initializeApp} from "firebase/app";
-import {getFirestore} from "firebase/firestore";
 import LoginScreen from "./screens/login_screen/LoginScreen";
+import SplashScreen from "./screens/splash_screen/SplashScreen";
+import { withCookies, Cookies } from 'react-cookie';
+import {SET_STATE} from "./redux/setState";
+import {doc, getDoc, getFirestore} from "firebase/firestore";
+import UserObject from "./objects/UserObject";
+import MyNotes from "./screens/MyNotes/MyNotes";
+
 
 class App extends React.Component {
 
-    constructor() {
-        super();
-
+    db = null;
+    constructor(props) {
+        super(props);
         this.initFireBase();
+
     }
 
+    componentDidMount() {
+        this.db=getFirestore();
+        this.checkIfUserConnected();
+    }
+
+    shouldComponentUpdate(nextProps, nextState, nextContext) {
+        return this.props[DEFINITION.SPLASH_SCREEN]!=nextProps[DEFINITION.SPLASH_SCREEN]
+    }
 
 
     render() {
         return (
             <div className="App">
-                <LoginScreen/>
+                {
+                    this.props[DEFINITION.SPLASH_SCREEN]?
+                        <SplashScreen/>:
+                        this.props[DEFINITION.LOGGED_IN]?
+                            <MyNotes/>
+                            :
+                        <LoginScreen/>
+                }
+
             </div>
         )
     }
@@ -42,14 +63,39 @@ class App extends React.Component {
 
 
     }
+
+    loadUserData=async (uid)=>{
+        const user = doc(this.db, "users",uid)
+        const userSnap = await getDoc(user);
+        const userObject=new UserObject(userSnap.data());
+        this.props[SET_STATE]({
+            [DEFINITION.SPLASH_SCREEN]:false,
+            [DEFINITION.LOGGED_IN]:true,
+            [DEFINITION.CURRENT_USER]:userObject
+        })
+    }
+
+    checkIfUserConnected=async ()=>{
+
+        const { cookies } = this.props;
+        if(cookies.get(DEFINITION.USER_UID)!=undefined ){
+            await this.loadUserData(cookies.get(DEFINITION.USER_UID));
+        }else{
+            this.props[SET_STATE]({
+                [DEFINITION.SPLASH_SCREEN]:false
+            })
+        }
+    }
 }
 
 const mapStateToProps = (state) => {
 
     return {
-        [DEFINITION.TEST]: state.appReducer[DEFINITION.TEST]
+        [DEFINITION.SPLASH_SCREEN]: state.appReducer[DEFINITION.SPLASH_SCREEN],
+        [DEFINITION.LOGGED_IN]:state.appReducer[DEFINITION.LOGGED_IN]
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+
+export default connect(mapStateToProps, mapDispatchToProps)(withCookies(App));
 

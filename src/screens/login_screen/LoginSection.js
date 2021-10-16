@@ -6,15 +6,21 @@ import InputComponent from "../../components/input_component/InputComponent";
 import {strings} from "../../utils/localization";
 import ButtonComponent from "../../components/button_component/ButtonComponent";
 import {TYPE_OF_ICON} from "../../utils/GetIcon";
-import {signInWithPopup,onAuthStateChanged, GoogleAuthProvider,getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import {getFirestore,addDoc,collection } from "firebase/firestore";
-
-
-
-
+import {
+    signInWithPopup,
+    onAuthStateChanged,
+    GoogleAuthProvider,
+    getAuth,
+    createUserWithEmailAndPassword
+} from "firebase/auth";
+import {getFirestore, getDoc, setDoc, collection, doc} from "firebase/firestore";
+import {DEFINITION} from "../../utils/DEFINITIONS";
+import {withCookies} from "react-cookie";
 
 
 class LoginSection extends React.Component {
+
+    db = getFirestore();
 
     componentDidMount() {
         this.authListeners();
@@ -83,68 +89,46 @@ class LoginSection extends React.Component {
         )
     }
 
-    signInWithTwitter=()=>{
+    signInWithTwitter = () => {
 
 
     }
-    signInWithGmail=async ()=>{
+    signInWithGmail = async () => {
         const provider = new GoogleAuthProvider();
         const auth = getAuth();
-       auth.useDeviceLanguage();
-    await    signInWithPopup(auth, provider)
+        auth.useDeviceLanguage();
+        await signInWithPopup(auth, provider)
             .then((result) => {
 
                 // ...
             }).catch((error) => {
-            // Handle Errors here.
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            // The email of the user's account used.
-            const email = error.email;
-            // The AuthCredential type that was used.
-            const credential = GoogleAuthProvider.credentialFromError(error);
-            alert(error)
-            // ...
-        });
+                // Handle Errors here.
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                // The email of the user's account used.
+                const email = error.email;
+                // The AuthCredential type that was used.
+                const credential = GoogleAuthProvider.credentialFromError(error);
+                alert(error)
+                // ...
+            });
     }
-    signInWithFacebook=()=>{
+    signInWithFacebook = () => {
 
     }
 
-    authListeners=  ()=>{
+    authListeners = () => {
         const auth = getAuth();
-       onAuthStateChanged(auth,async(user) => {
+        onAuthStateChanged(auth, async (user) => {
             if (user) {
-                // User is signed in, see docs for a list of available properties
-                // https://firebase.google.com/docs/reference/js/firebase.User
-                var uid = user.uid;
-                alert(JSON.stringify(user))
+                const { cookies } = this.props;
+                cookies.set(DEFINITION.USER_UID, user.uid, { path: '/' });
+                const userData = await this.userExist(user);
 
-
-
-
-
-
-                const db = getFirestore();
-                try {
-                    const userObject={
-                        currentState:[],
-                        fav:[],
-                        initLogin:true,
-                        isSubscribed:false,
-                        name:'',
-                        pickedCategory:[]
-
-
-                    }
-                    const docRef = await addDoc(collection(db, "test"), {
-                        first: "Ada",
-                        last: "Lovelace",
-                        born: 1815
-                    });
-
-                } catch (e) {
-                    console.error("Error adding document: ", e);
+                if (userData.exist) {
+                    this.loadUserData(user)
+                } else {
+                 await   this.registerNewUser(user);
                 }
 
 
@@ -155,10 +139,55 @@ class LoginSection extends React.Component {
         });
     }
 
+    userExist = async (user) => {
+
+        const userRef = doc(this.db, "users", user.uid);
+        const userSnap = await getDoc(userRef);
+        const exist = await userSnap.exists();
+        return {
+            exist,
+            userData: userSnap
+        };
+
+
+    }
+
+    loadUserData = () => {
+
+    }
+
+    registerNewUser = async (user) => {
+        const allCategoriesRef = doc(this.db, "category","category")
+        const allCategories = await getDoc(allCategoriesRef);
+
+        const categories=allCategories.data().categorys.map((item)=>{
+            return item.title
+        })
+
+
+        const userData = {
+            name: "",
+            totalNoteOpen: [],
+            rating: 0,
+            watchedNote: [],
+            currentState: [],
+            pickedCategory: categories,
+            totalStarRanked: 0,
+            fav: [],
+            uid: user.uid,
+            isSubscribed: false,
+            initLogin: true
+        };
+
+        await setDoc(doc(this.db, "users", user.uid), userData);
+
+
+    }
+
 
 }
 
 const mapStateToProps = (state) => {
     return {}
 }
-export default connect(mapStateToProps, mapDispatchToProps)(LoginSection);
+export default connect(mapStateToProps, mapDispatchToProps)(withCookies(LoginSection));
