@@ -1,0 +1,33 @@
+#container{
+    margin:0;
+    display: flex;
+    flex:1;
+    background-color: red;
+    flex-direction: column;
+
+}
+#thumbnail{
+    display: flex;
+    flex:1;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+}
+#images_sector{
+
+
+}
+
+#thumbnail_container{
+    border:3px solid black;
+    margin:1%;
+    display: flex;
+    width: 5%;
+    height:5%;
+}
+#text_on_image{
+    margin-bottom: 1%;
+    align-self: flex-end;
+    position: absolute;
+    background-color: green;
+}

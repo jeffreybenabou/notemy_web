@@ -20,6 +20,7 @@ class MyNotes extends React.Component{
     render() {
         return(
             <div className={"grid-container"}>
+
                 {
                     this.props[DEFINITION.CURRENT_USER].totalNoteOpen.length==0?
                         <EmptyNotes/>:

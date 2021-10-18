@@ -16,6 +16,7 @@ import {
 import {getFirestore, getDoc, setDoc, collection, doc} from "firebase/firestore";
 import {DEFINITION} from "../../utils/DEFINITIONS";
 import {withCookies} from "react-cookie";
+import {SET_STATE} from "../../redux/setState";
 
 
 class LoginSection extends React.Component {
@@ -152,8 +153,8 @@ class LoginSection extends React.Component {
 
     }
 
-    loadUserData = () => {
-
+    loadUserData = (user) => {
+        this.navToNextScreen(user);
     }
 
     registerNewUser = async (user) => {
@@ -180,8 +181,16 @@ class LoginSection extends React.Component {
         };
 
         await setDoc(doc(this.db, "users", user.uid), userData);
+        this.navToNextScreen(userData);
 
 
+    }
+
+    navToNextScreen=(user)=>{
+        this.props[SET_STATE]({
+            [DEFINITION.CURRENT_USER]:user,
+            [DEFINITION.LOGGED_IN]:true,
+        })
     }
 
 

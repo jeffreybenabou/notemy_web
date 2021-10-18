@@ -8,7 +8,6 @@ import {GetIcon} from "../../utils/GetIcon";
 class ButtonComponent extends React.Component {
 
 
-
     shouldComponentUpdate(nextProps, nextState, nextContext) {
         return (
             true
@@ -18,7 +17,9 @@ class ButtonComponent extends React.Component {
     render() {
         return (
             <div id={"container"}>
-                <button onClick={this.props.onClick}>
+                <button
+                    name={this.props.name}
+                    onClick={this.props.onClick}>
                     <div>
                         {
                             this.props.title
@@ -27,7 +28,7 @@ class ButtonComponent extends React.Component {
                     <GetIcon
                         size={this.props.iconSize}
                         type={this.props.iconType}
-                        color={this.props.iconColor} />
+                        color={this.props.iconColor}/>
                 </button>
             </div>
         )
@@ -37,15 +38,14 @@ class ButtonComponent extends React.Component {
 
 ButtonComponent.propTypes = {
     onClick: PropTypes.func,
-    title:PropTypes.string,
-    iconSize:PropTypes.number,
-    iconColor:PropTypes.string,
-    iconType:PropTypes.number
+    title: PropTypes.string,
+    iconSize: PropTypes.number,
+    iconColor: PropTypes.string,
+    iconType: PropTypes.number,
+    name: PropTypes.string
 };
 const mapStateToProps = (state) => {
-    return {
-
-    }
+    return {}
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ButtonComponent);

@@ -1,12 +1,14 @@
 import {SET_STATE} from "./setState";
 import {DEFINITION} from "../utils/DEFINITIONS";
-import {act} from "@testing-library/react";
 
 
 export const initialState = {
     [DEFINITION.CURRENT_USER]:null,
     [DEFINITION.SPLASH_SCREEN]:true,
-    [DEFINITION.LOGGED_IN]:false
+    [DEFINITION.LOGGED_IN]:false,
+    [DEFINITION.ALL_NOTES]:true,
+    [DEFINITION.MY_NOTES]:false,
+    [DEFINITION.SETTINGS]:false
 };
 
 

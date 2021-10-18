@@ -11,6 +11,7 @@ import {SET_STATE} from "./redux/setState";
 import {doc, getDoc, getFirestore} from "firebase/firestore";
 import UserObject from "./objects/UserObject";
 import MyNotes from "./screens/MyNotes/MyNotes";
+import Navigation from "./screens/Navigation";
 
 
 class App extends React.Component {
@@ -35,11 +36,12 @@ class App extends React.Component {
     render() {
         return (
             <div className="App">
+
                 {
                     this.props[DEFINITION.SPLASH_SCREEN]?
                         <SplashScreen/>:
                         this.props[DEFINITION.LOGGED_IN]?
-                            <MyNotes/>
+                            <Navigation/>
                             :
                         <LoginScreen/>
                 }
